@@ -1,6 +1,6 @@
 <html>
     <head>
-        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
         <div id="hovering-contacts">
@@ -14,7 +14,20 @@
             <p class="price">Цена: 700 000Դ</p>
             <p>Ереван, Кентрон. Для связи telegram: <a href="https://t.me/plflok">@plflok</a></p>
             <p id="important-note">При продаже настаиваю на очном проведении тестирования ноутбука, поэтому закладывайте ~1 час на встречу</p>
+            <h2>Фотографии</h2>
+            <div class="photo-gallery">
+                <img src="https://plflok.github.io/alienwarem15r7/1.jpg" alt="Фото 1">
+                <img src="https://plflok.github.io/alienwarem15r7/2.jpg" alt="Фото 2">
+                <img src="https://plflok.github.io/alienwarem15r7/3.jpg" alt="Фото 3">
+                <img src="https://plflok.github.io/alienwarem15r7/4.jpg" alt="Фото 4">
+                <img src="https://plflok.github.io/alienwarem15r7/5.jpg" alt="Фото 5">
+                <img src="https://plflok.github.io/alienwarem15r7/6.jpg" alt="Фото 6">
+                <img src="https://plflok.github.io/alienwarem15r7/7.jpg" alt="Фото 7">
+                <img src="https://plflok.github.io/alienwarem15r7/8.jpg" alt="Фото 8">
+                <img src="https://plflok.github.io/alienwarem15r7/9.jpg" alt="Фото 9">
+            </div>
             <h2 id="-">Характеристики</h2>
+            <div class="table-wrapper">
             <table class="specifications">
                 <thead>
                     <tr>
@@ -72,8 +85,10 @@
                 </tbody>
 
             </table>
+            </div>
             <h2 id="-">Тесты производительности</h2>
             <h3 id="3dmark">3dmark</h3>
+            <div class="table-wrapper">
             <table class="performance-tests">
                 <thead>
                     <tr>
@@ -106,7 +121,9 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
             <h2>Тесты в играх</h2>
+            <div class="table-wrapper">
             <table class="performance-tests">
                 <thead>
                     <tr>
@@ -145,8 +162,10 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
             <p>Если вам нужно провести тест в другой игре - напишите, запишу видео, если такая игра у меня есть.</p>
             <h2>Обслуживание</h2>
+            <div class="table-wrapper">
             <table class="performance-tests">
             <thead>
             <tr>
@@ -169,7 +188,7 @@
             </tr>
             </tbody>
             </table>
-           
+            </div>
 
             <h2>Прочее</h2>
             <p>Как и любой "игровой ноутбук" под нагрузкой он выделяет много тепла, которое отводится с большим шумом. Поэтому в ААА игры стоит играть в наушниках.</p>
@@ -264,6 +283,27 @@
                     margin-top: 5px;
                 }
 
+                /* Photo Gallery стили */
+                .photo-gallery {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                }
+
+                .photo-gallery img {
+                    width: 150px;
+                    height: 150px;
+                    object-fit: cover;
+                    cursor: zoom-in;
+                    border-radius: 4px;
+                    transition: transform 0.2s ease, box-shadow 0.2s ease;
+                }
+
+                .photo-gallery img:hover {
+                    transform: scale(1.05);
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+                }
+
                 /* Lightbox стили */
                 .lightbox-overlay {
                     position: fixed;
@@ -311,11 +351,11 @@
 
                 .lightbox-close {
                     position: absolute;
-                    top: -40px;
-                    right: -10px;
+                    top: 10px;
+                    right: 10px;
                     width: 36px;
                     height: 36px;
-                    background: transparent;
+                    background: black;
                     border: none;
                     cursor: pointer;
                     font-size: 30px;
@@ -324,6 +364,8 @@
                     justify-content: center;
                     align-items: center;
                     transition: transform 0.2s ease;
+                    z-index: 50;
+                    border-radius: 100%;
                 }
 
                 .lightbox-close:hover {
@@ -346,6 +388,58 @@
 
                 .lightbox-close::after {
                     transform: rotate(-45deg);
+                }
+
+                /* Lightbox навигация */
+                .lightbox-nav {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 50px;
+                    height: 50px;
+                    background: rgba(255, 255, 255, 0.1);
+                    border: none;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    color: #fff;
+                    font-size: 24px;
+                    display: none;
+                    justify-content: center;
+                    align-items: center;
+                    transition: background 0.2s ease, transform 0.2s ease;
+                }
+
+                .lightbox-nav:hover {
+                    background: rgba(255, 255, 255, 0.3);
+                    transform: translateY(-50%) scale(1.1);
+                }
+
+                .lightbox-nav.visible {
+                    display: flex;
+                }
+
+                .lightbox-prev {
+                    left: 20px;
+                    z-index: 50;
+                }
+
+                .lightbox-next {
+                    right: 20px;
+                    z-index: 50;
+                }
+
+                .lightbox-counter {
+                    position: absolute;
+                    bottom: -40px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    color: #fff;
+                    font-size: 14px;
+                    display: none;
+                }
+
+                .lightbox-counter.visible {
+                    display: block;
                 }
 
                 .video-comment {
@@ -406,6 +500,90 @@
                     line-height: 30px;
                 }
 
+                .table-wrapper {
+                    width: 100%;
+                    overflow-x: auto;
+                }
+
+                /* Мобильная адаптация */
+                @media (max-width: 600px) {
+                    .container {
+                        padding: 0 15px;
+                    }
+
+                    h1 {
+                        font-size: 1.5em;
+                        margin-top: 1em;
+                    }
+
+                    h2 {
+                        font-size: 1.3em;
+                    }
+
+                    .price {
+                        font-size: 1.1em;
+                    }
+
+                    iframe {
+                        width: 100%;
+                        max-width: 320px;
+                        height: auto;
+                        aspect-ratio: 16 / 9;
+                    }
+
+                    #hovering-contacts {
+                        height: auto;
+                        padding: 10px 0;
+                    }
+
+                    #hovering-contacts .container p {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 8px;
+                        align-items: center;
+                        margin: 0;
+                    }
+
+                    #hovering-contacts .laptop-name {
+                        font-size: 0.9em;
+                        height: 26px;
+                        line-height: 26px;
+                    }
+
+                    #hovering-contacts .price {
+                        height: 26px;
+                        line-height: 26px;
+                    }
+
+                    .container-main {
+                        padding-bottom: 80px;
+                    }
+
+                    .photo-gallery img {
+                        width: 100px;
+                        height: 100px;
+                    }
+
+                    .lightbox-nav {
+                        width: 40px;
+                        height: 40px;
+                        font-size: 18px;
+                    }
+
+                    .lightbox-prev {
+                        left: 40px;
+                    }
+
+                    .lightbox-next {
+                        right: 40px;
+                    }
+
+                    .lightbox-counter {
+                        bottom: -30px;
+                        font-size: 12px;
+                    }
+                }
+
                   </style>
 
         <script>
@@ -421,33 +599,123 @@
                 closeBtn.className = 'lightbox-close';
                 closeBtn.setAttribute('aria-label', 'Закрыть');
                 
+                const prevBtn = document.createElement('button');
+                prevBtn.className = 'lightbox-nav lightbox-prev';
+                prevBtn.innerHTML = '&#10094;';
+                prevBtn.setAttribute('aria-label', 'Предыдущее фото');
+                
+                const nextBtn = document.createElement('button');
+                nextBtn.className = 'lightbox-nav lightbox-next';
+                nextBtn.innerHTML = '&#10095;';
+                nextBtn.setAttribute('aria-label', 'Следующее фото');
+                
+                const counter = document.createElement('div');
+                counter.className = 'lightbox-counter';
+                
                 const lightboxImg = document.createElement('img');
                 lightboxImg.alt = 'Увеличенное изображение';
                 
                 content.appendChild(closeBtn);
+                content.appendChild(prevBtn);
                 content.appendChild(lightboxImg);
+                content.appendChild(nextBtn);
+                content.appendChild(counter);
                 overlay.appendChild(content);
                 document.body.appendChild(overlay);
                 
-                // Функция открытия
+                // Состояние галереи
+                let galleryImages = [];
+                let currentIndex = 0;
+                let isGalleryMode = false;
+                
+                // Функция обновления изображения
+                function updateImage() {
+                    if (galleryImages.length > 0) {
+                        lightboxImg.src = galleryImages[currentIndex].src;
+                        lightboxImg.alt = galleryImages[currentIndex].alt || 'Фото ' + (currentIndex + 1);
+                        counter.textContent = (currentIndex + 1) + ' / ' + galleryImages.length;
+                    }
+                }
+                
+                // Функция открытия (обычный режим)
                 function openLightbox(src, alt) {
+                    isGalleryMode = false;
+                    galleryImages = [];
                     lightboxImg.src = src;
                     lightboxImg.alt = alt || 'Увеличенное изображение';
+                    prevBtn.classList.remove('visible');
+                    nextBtn.classList.remove('visible');
+                    counter.classList.remove('visible');
                     overlay.classList.add('active');
                     document.body.style.overflow = 'hidden';
+                }
+                
+                // Функция открытия галереи
+                function openGallery(images, startIndex) {
+                    isGalleryMode = true;
+                    galleryImages = images;
+                    currentIndex = startIndex;
+                    prevBtn.classList.add('visible');
+                    nextBtn.classList.add('visible');
+                    counter.classList.add('visible');
+                    updateImage();
+                    overlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+                
+                // Навигация
+                function goToPrev() {
+                    if (galleryImages.length > 0) {
+                        currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+                        updateImage();
+                    }
+                }
+                
+                function goToNext() {
+                    if (galleryImages.length > 0) {
+                        currentIndex = (currentIndex + 1) % galleryImages.length;
+                        updateImage();
+                    }
                 }
                 
                 // Функция закрытия
                 function closeLightbox() {
                     overlay.classList.remove('active');
                     document.body.style.overflow = '';
+                    isGalleryMode = false;
+                    galleryImages = [];
                 }
                 
-                // Обработчики для кликабельных картинок
+                // Обработчики для кликабельных картинок (без навигации)
                 document.querySelectorAll('.image-clickable').forEach(function(img) {
                     img.addEventListener('click', function() {
                         openLightbox(this.src, this.alt);
                     });
+                });
+                
+                // Обработчики для фото-галереи (с навигацией)
+                const photoGallery = document.querySelector('.photo-gallery');
+                if (photoGallery) {
+                    const galleryImgs = photoGallery.querySelectorAll('img');
+                    galleryImgs.forEach(function(img, index) {
+                        img.addEventListener('click', function() {
+                            const images = Array.from(galleryImgs).map(function(i) {
+                                return { src: i.src, alt: i.alt };
+                            });
+                            openGallery(images, index);
+                        });
+                    });
+                }
+                
+                // Кнопки навигации
+                prevBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    goToPrev();
+                });
+                
+                nextBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    goToNext();
                 });
                 
                 // Закрытие по клику на крестик
@@ -463,10 +731,16 @@
                     }
                 });
                 
-                // Закрытие по Escape
+                // Клавиатурная навигация
                 document.addEventListener('keydown', function(e) {
-                    if (e.key === 'Escape' && overlay.classList.contains('active')) {
+                    if (!overlay.classList.contains('active')) return;
+                    
+                    if (e.key === 'Escape') {
                         closeLightbox();
+                    } else if (isGalleryMode && e.key === 'ArrowLeft') {
+                        goToPrev();
+                    } else if (isGalleryMode && e.key === 'ArrowRight') {
+                        goToNext();
                     }
                 });
 
